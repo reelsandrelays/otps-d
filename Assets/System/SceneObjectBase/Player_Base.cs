@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class Player_Base : MonoBehaviour
+public class Player_Base : MonoBeWayviour
 {
     public static Player_Base Instance { get; private set; }
 

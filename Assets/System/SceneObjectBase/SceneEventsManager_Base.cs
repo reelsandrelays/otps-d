@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SceneEventsManager_Base : MonoBehaviour
+public abstract class SceneEventsManager_Base : MonoBeWayviour
 {
     public static SceneEventsManager_Base Instance { get; private set; }
 
