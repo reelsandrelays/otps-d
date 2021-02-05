@@ -32,6 +32,15 @@ public class SceneManager_Sample : SceneManager_Base
 
             (EventsManager as SceneEventsManager_Sample)?.ProgressSampleScene.Invoke(0);
         }
+
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            progression--;
+
+            if (progression < 0) progression = 0;
+
+            (EventsManager as SceneEventsManager_Sample)?.ProgressSampleScene.Invoke(0);
+        }
     }
 
     public static void ProgressSampleScene(float parameter)

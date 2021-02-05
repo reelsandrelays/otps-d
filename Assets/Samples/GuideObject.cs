@@ -16,7 +16,7 @@ public class GuideObject : MonoBeWayviour
     
     void Start()
     {
-        life = Random.Range(2, 6);
+        life = Random.Range(3, 9);
         objectName = Name[Random.Range(0, Name.Length)];
 
         // 2. 자기들이 직접 등록하게 할 수도 있슴다.
