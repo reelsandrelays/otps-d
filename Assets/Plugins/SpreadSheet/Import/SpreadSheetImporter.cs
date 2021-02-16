@@ -7,17 +7,17 @@ using Sirenix.OdinInspector;
 [CreateAssetMenu(fileName = "Importer", menuName = "SpreadSheet/Importer")]
 public class SpreadSheetImporter : ScriptableSingleton<SpreadSheetImporter>
 {
-    private const string SUFFIX = "SpreadSheet";
-    private const string SHEETSUFFIX = "Sheet";
+    private const string SUFFIX         = "SpreadSheet";
+    private const string SHEETSUFFIX    = "Sheet";
     private Google.Apis.Sheets.v4.Data.Spreadsheet apiData;
 
     [FolderPath]
     public string SavePath;
-    public string SheetID;    
+    public string SheetID;
 
     /// <summary>
     /// SpreadSheet Import Main Function
-    /// </summary>    
+    /// </summary>
     [Button(ButtonSizes.Large), PropertySpace(SpaceAfter = 0, SpaceBefore = 5f)]
     public void GenerateSpreadSheet() => GenerateSpreadSheet(SheetID);
     public void GenerateSpreadSheet(string sheetID)
@@ -104,6 +104,8 @@ public class SpreadSheetImporter : ScriptableSingleton<SpreadSheetImporter>
         }
 
         AddWorkSheetToSpreadSheet(workSheet);
+
+        EditorUtility.SetDirty(workSheet);
     }
 
     private void AddWorkSheetToSpreadSheet(WorkSheet workSheet)
@@ -113,10 +115,14 @@ public class SpreadSheetImporter : ScriptableSingleton<SpreadSheetImporter>
             workSheet.SpreadSheet.WorkSheetList = new List<WorkSheet>();
         }
 
-        if (!workSheet.SpreadSheet.WorkSheetList.Find(x => x.Equals(workSheet)))
+        if (!workSheet.SpreadSheet.WorkSheetList.Contains(workSheet))
         {
             workSheet.SpreadSheet.WorkSheetList.Add(workSheet);
             Debug.Log("Add : <b><color=green>" + workSheet.Title + "</color></b> to <b>" + workSheet.SpreadSheet.Title + "</b>");
+        }
+        else
+        {
+            Debug.Log("Reload : <b><color=green>" + workSheet.Title + "</color></b>");
         }
     }
 
@@ -133,7 +139,7 @@ public class SpreadSheetImporter : ScriptableSingleton<SpreadSheetImporter>
     private bool FindSpreadSheet(string fileName)
     {
         string[] assetDataGuid = AssetDatabase.FindAssets
-            ($"t:{typeof(SpreadSheet).FullName} {SavePath}/{fileName}", new[] { SavePath });
+            ($"t:{typeof(SpreadSheet).FullName} {fileName}", new[] { SavePath });
 
         // Can't Find
         if (assetDataGuid.Length < 1)
@@ -183,7 +189,7 @@ public class SpreadSheetImporter : ScriptableSingleton<SpreadSheetImporter>
             {
                 assetPath = AssetDatabase.GUIDToAssetPath(assetDataGuid[i]);
                 item = AssetDatabase.LoadAssetAtPath(assetPath, typeof(SpreadSheet)) as SpreadSheet;
-                if (item.name.Equals($"{fileName}"))
+                if (item.name.Equals(fileName))
                 {
                     Debug.LogWarning("Selected Data : <b><color=yellow>" + item.name + "</color></b>");
                     break;

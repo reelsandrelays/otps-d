@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9682be2a90136d409005a2d6d652ad3, type: 3}
-  m_Name: WaywayStudio
+  m_Name: WaywayStudioClientInformation
   m_EditorClassIdentifier: 
   clientID: 35697631413-drqjn3vl0urcb5io7u3logoiml619bsh.apps.googleusercontent.com
   clientSecret: UWjG6aYA8CuZwD74LdagqpJD
