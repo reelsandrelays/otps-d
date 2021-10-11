@@ -79,7 +79,7 @@ public class FbxToPrefab : ScriptableObject
 
 
     /// <summary> Prefab Generate Button </summary> ///
-    [Button(ButtonSizes.Large), DisableIf("@isValidated"), PropertyOrder(-1)]
+    [Button(ButtonSizes.Large), EnableIf("isValidated"), PropertyOrder(-1)]
     public void GenerateMasterPrefab()
     {
         if (!isValidated) return;

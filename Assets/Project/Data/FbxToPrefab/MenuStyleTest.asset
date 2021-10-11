@@ -12,3 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867bc26be04c0473681be61219734ae2, type: 3}
   m_Name: MenuStyleTest
   m_EditorClassIdentifier: 
+  height: 63
+  offset: 16
+  indentAmount: 15
+  iconSize: 16
+  iconOffset: 0
+  notSelectedIconAlpha: 0.85
+  iconPadding: 3
+  triangleSize: 17
+  trianglePadding: 8
+  alignTriangleLeft: 0
+  borders: 1
+  borderPadding: 13
+  borderAlpha: 0.5
+  selectedColorDarkSkin: {r: 0.243, g: 0.373, b: 0.588, a: 1}
+  selectedColorLightSkin: {r: 0.243, g: 0.49, b: 0.9, a: 1}

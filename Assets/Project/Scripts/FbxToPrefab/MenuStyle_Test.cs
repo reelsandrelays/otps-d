@@ -8,29 +8,24 @@ using UnityEngine;
 public class MenuStyle_Test : ScriptableObject
     {
         /// <summary> style configs. </summary>
-        private int height;
-        private float offset;
-        private float indentAmount;
-        private float iconSize;
-        private float iconOffset;
-        private float notSelectedIconAlpha;
-        private float iconPadding;
-        private float triangleSize;
-        private float trianglePadding;
-        private bool alignTriangleLeft;
-        private bool borders;
-        private float borderPadding;
-        private float borderAlpha;
-        private Color selectedColorDarkSkin;
-        private Color selectedColorLightSkin;
-
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private int height;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private float offset;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private float indentAmount;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private float iconSize;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private float iconOffset;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private float notSelectedIconAlpha;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private float iconPadding;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private float triangleSize;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private float trianglePadding;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private bool alignTriangleLeft;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private bool borders;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private float borderPadding;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private float borderAlpha;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private Color selectedColorDarkSkin;
+        [SerializeField, OnValueChanged("SaveMenuStyle")] private Color selectedColorLightSkin;
 
         private OdinMenuTree tree;
-        public OdinMenuTree Tree
-        {
-            set => tree = value;
-        }
-        
+        public OdinMenuTree Tree { set => tree = value; }
         public OdinMenuStyle Style => new OdinMenuStyle() 
         {
             Height = height,
@@ -50,30 +45,31 @@ public class MenuStyle_Test : ScriptableObject
             SelectedColorLightSkin = selectedColorLightSkin,
         };
         
-        
-        [Button(ButtonSizes.Gigantic)]
+        // Used At OnValueChanged Attribute
         public void SaveMenuStyle()
         {
-            height = tree.DefaultMenuStyle.Height;
-            offset = tree.DefaultMenuStyle.Offset;
-            indentAmount = tree.DefaultMenuStyle.IndentAmount;
-            iconSize = tree.DefaultMenuStyle.IconSize;
-            iconOffset = tree.DefaultMenuStyle.IconOffset;
-            notSelectedIconAlpha = tree.DefaultMenuStyle.NotSelectedIconAlpha;
-            iconPadding = tree.DefaultMenuStyle.IconPadding;
-            triangleSize = tree.DefaultMenuStyle.TriangleSize;
-            trianglePadding = tree.DefaultMenuStyle.TrianglePadding;
-            alignTriangleLeft = tree.DefaultMenuStyle.AlignTriangleLeft;
-            borders = tree.DefaultMenuStyle.Borders;
-            borderPadding = tree.DefaultMenuStyle.BorderPadding;
-            borderAlpha = tree.DefaultMenuStyle.BorderAlpha;
-            selectedColorDarkSkin = tree.DefaultMenuStyle.SelectedColorDarkSkin;
-            selectedColorLightSkin = tree.DefaultMenuStyle.SelectedColorLightSkin;
+            tree.DefaultMenuStyle.Height = height;
+            tree.DefaultMenuStyle.Offset = offset;
+            tree.DefaultMenuStyle.IndentAmount = indentAmount;
+            tree.DefaultMenuStyle.IconSize = iconSize;
+            tree.DefaultMenuStyle.IconOffset = iconOffset;
+            tree.DefaultMenuStyle.NotSelectedIconAlpha = notSelectedIconAlpha;
+            tree.DefaultMenuStyle.IconPadding = iconPadding;
+            tree.DefaultMenuStyle.TriangleSize = triangleSize;
+            tree.DefaultMenuStyle.TrianglePadding = trianglePadding;
+            tree.DefaultMenuStyle.AlignTriangleLeft = alignTriangleLeft;
+            tree.DefaultMenuStyle.Borders = borders;
+            tree.DefaultMenuStyle.BorderPadding = borderPadding;
+            tree.DefaultMenuStyle.BorderAlpha = borderAlpha;
+            tree.DefaultMenuStyle.SelectedColorDarkSkin = selectedColorDarkSkin;
+            tree.DefaultMenuStyle.SelectedColorLightSkin = selectedColorLightSkin;
         }
         
         
-        [Button]
-        public void GetDefaultStyleConfigs()
+        [Button("Set As Odin Default Configs.", ButtonSizes.Large),
+         PropertySpace(0f, 10f),
+         PropertyOrder(-1)]
+        public void SetDefaultStyleConfigs()
         {
             height = 30;
             offset = 16.00f;
@@ -91,8 +87,7 @@ public class MenuStyle_Test : ScriptableObject
             selectedColorDarkSkin = new Color(0.243f, 0.373f, 0.588f, 1.000f);
             selectedColorLightSkin = new Color(0.243f, 0.490f, 0.900f, 1.000f);
             
-            tree.DefaultMenuStyle = Style;
-            tree.ScrollToMenuItem(tree.MenuItems[0]);
+            SaveMenuStyle();
         }
     }
 

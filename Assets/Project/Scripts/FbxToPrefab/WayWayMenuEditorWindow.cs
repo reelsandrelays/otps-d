@@ -21,14 +21,12 @@ public class WayWayMenuEditorWindow : OdinMenuEditorWindow
     {
         menuStyle ??= (MenuStyle_Test)AssetDatabase.LoadAssetAtPath(menuStylePath, typeof(MenuStyle_Test));
         if (!menuStyle) return;
-        
+
         tree.DefaultMenuStyle = menuStyle.Style;
         menuStyle.Tree = tree;
         
-        var menuStyleItem = new OdinMenuItem(tree, "Menu Style", tree.DefaultMenuStyle);
+        var menuStyleItem = new OdinMenuItem(tree, "Menu Style", menuStyle);
         tree.MenuItems.Add(menuStyleItem);
-        
-        tree.Add("Menu Style/Save Styles", menuStyle);
     }
 }
 
