@@ -1,12 +1,16 @@
 using UnityEngine;
 
-public interface IAudioPlayable
+namespace Wayway.Engine.Audio
 {
-    AudioType Type { get; }
-    AudioClip AudioClip { get; }
-    int Priority { get; }
+    public interface IAudioPlayable
+    {
+        AudioType Type { get; }
+        AudioClip AudioClip { get; }
+        int Priority { get; }
 
-    void Play();
-    void Pause();
-    void Stop();    
+        void Play();
+        void Pause();
+        void Stop();
+    }
 }
+

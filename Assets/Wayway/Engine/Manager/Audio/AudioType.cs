@@ -1,9 +1,14 @@
-public enum AudioType
+namespace Wayway.Engine.Audio
 {
-    /**/ NONE       = 0,
-    Bgm             = 1,
-    SfxGeneral      = 2,
-    SfxProjectile   = 3,
-    SfxUI           = 4,
-    Bumper          = 5
+    [System.Flags]
+    public enum AudioType
+    {        
+        None            = 0,
+        Bgm             = 1 << 0,
+        SfxGeneral      = 1 << 1,
+        SfxProjectile   = 1 << 2,
+        SfxUI           = 1 << 3,
+        Bumper          = 1 << 4,
+        All             = int.MaxValue
+    }
 }

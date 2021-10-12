@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 using Wayway.Engine.Audio;
+using AudioType = Wayway.Engine.Audio.AudioType;
 
 namespace Wayway.Engine
 {

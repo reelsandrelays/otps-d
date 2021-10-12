@@ -30,7 +30,7 @@ namespace Wayway.Engine.Audio
             DrawBgmAudioClipData(tree, "SFX.Projectile clipdata", AudioType.SfxProjectile);
             DrawBgmAudioClipData(tree, "SFX.UI clipdata", AudioType.SfxUI);
             DrawBgmAudioClipData(tree, "SFX.Bumper clipdata", AudioType.Bumper);
-            DrawBgmAudioClipData(tree, "Un Sorted", new List<AudioType>() { AudioType.NONE });
+            DrawBgmAudioClipData(tree, "Un Sorted", new List<AudioType>() { AudioType.None });
 
             tree.EnumerateTree().AddThumbnailIcons(true);
 
