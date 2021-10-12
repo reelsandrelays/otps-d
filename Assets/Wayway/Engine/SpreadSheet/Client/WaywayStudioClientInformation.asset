@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9682be2a90136d409005a2d6d652ad3, type: 3}
+  m_Name: WaywayStudioClientInformation
+  m_EditorClassIdentifier: 
+  clientID: 993615585172-qr8jhrb2n6s9982d8n8cjdt667d2o1ho.apps.googleusercontent.com
+  clientSecret: IingfVdSmnKrAy-HTvcuYalf
