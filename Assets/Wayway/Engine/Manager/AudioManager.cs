@@ -1,4 +1,11 @@
-﻿using System.Collections.Generic;
+﻿/* AudioManager.cs
+ * Wayway Studio
+ * Audio Play & Control Script 
+ * Assign GameObject
+ * Odin Inspector Require
+ * 2021.10.12 */
+
+using System.Collections.Generic;
 using System.Linq;
 using System;
 

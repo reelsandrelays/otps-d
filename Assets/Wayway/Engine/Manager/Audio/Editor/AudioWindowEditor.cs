@@ -6,14 +6,14 @@ using Sirenix.OdinInspector;
 
 namespace Wayway.Engine.Audio
 {
-    public class AudioManagerWindowEditor : OdinMenuEditorWindow
+    public class AudioWindowEditor : OdinMenuEditorWindow
     {
         List<AudioClipData> audioClipDatas;
 
         [MenuItem("Tools/AudioManager")]
         public static void OpenWidow()
         {
-            var window = GetWindow<AudioManagerWindowEditor>();
+            var window = GetWindow<AudioWindowEditor>();
 
             window.minSize = new Vector2(800f, 800f);
             window.MenuWidth = 280f;
