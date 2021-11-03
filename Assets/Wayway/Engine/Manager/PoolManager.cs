@@ -165,6 +165,3 @@ namespace Wayway.Engine
     }
     
 }
-
-
-
